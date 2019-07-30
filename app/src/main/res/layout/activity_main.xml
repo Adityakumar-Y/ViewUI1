@@ -1,203 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/coordinatorLayout"
     android:layout_height="match_parent"
     android:background="#ffecb3"
     android:orientation="vertical"
-    tools:context="com.example.viewui1.MainActivity">
+    tools:context="com.example.viewui1.Activity.MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            style="@style/TextAppearance.MaterialComponents.Headline1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Registration Form"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/border"
-            android:hint="Enter Your Name"
-            android:inputType="textPersonName|textAutoCorrect|textAutoComplete"
-            android:padding="10dp"
-
-            />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:hint="Enter Email Address"
-            android:inputType="textEmailAddress|textAutoComplete"
-            android:maxLength="20" />
-
-        <EditText
-            android:id="@+id/etPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:ems="10"
-            android:hint="Enter Mobile No"
-            android:inputType="number"
-            android:maxLength="10" />
-
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                android:id="@+id/textView"
+                style="@style/TextAppearance.MaterialComponents.Headline1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="13dp"
-                android:text="Education Completed"
-                android:textAllCaps="true"
-                android:textSize="14sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Registration Form"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="Gender"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-        </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/border"
+                    android:hint="Enter Your Name"
+                    android:inputType="textPersonName|textAutoCorrect|textAutoComplete"
+                    android:padding="10dp" />
+
+                <ImageButton
+                    android:id="@+id/btnBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:imeOptions="actionNext"
+                    android:src="@drawable/ic_format_bold_black_24dp" />
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/AppTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_id"
+                    android:drawableEnd="@drawable/ic_cancel_black_24dp"
+                    android:inputType="textEmailAddress|textAutoComplete"
+                    android:imeOptions="actionDone"
+                    android:maxLength="20" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:ems="10"
+                android:hint="Enter Mobile No"
+                android:inputType="number"
+                android:maxLength="10" />
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-                <CheckBox
-                    android:id="@+id/checkBox"
+                <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10 std"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/checkBox2" />
+                    android:layout_marginLeft="13dp"
+                    android:text="Education Completed"
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox2"
+                <TextView
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:button="@drawable/customcheckbox"
-                    android:text=" 12 std"
-                    android:textSize="12sp" />
-
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Graduation"
-                    android:textSize="12sp"
-
-                    android:theme="@android:style/Theme.Holo.Light" />
-
+                    android:layout_marginLeft="30dp"
+                    android:text="Gender"
+                    android:textAllCaps="true"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:orientation="vertical"
-                android:paddingTop="10dp">
+                android:orientation="horizontal">
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="111dp"
-                    android:layout_height="103dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
 
-                    <RadioButton
-                        android:id="@+id/rb_male"
+                    <CheckBox
+                        android:id="@+id/checkBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="Male"
-                        android:theme="@style/MyRadioButton" />
+                        android:text="10 std"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/checkBox2" />
 
-                    <RadioButton
-                        android:id="@+id/rb_female"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:text="Female"
-                        android:theme="@style/MyRadioButton" />
-                </RadioGroup>
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:button="@drawable/customcheckbox"
+                        android:text=" 12 std"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Graduation"
+                        android:textSize="12sp"
+
+                        android:theme="@android:style/Theme.Holo.Light" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="111dp"
+                        android:layout_height="103dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Male"
+                            android:theme="@style/MyRadioButton" />
+
+                        <RadioButton
+                            android:id="@+id/rb_female"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:text="Female"
+                            android:theme="@style/MyRadioButton" />
+                    </RadioGroup>
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="Choose a Country"
-            android:textStyle="italic" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="294dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/border"
-            android:backgroundTint="#f1f8e9" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Select Date of Birth"
+                android:padding="5dp"
+                android:text="Choose a Country"
                 android:textStyle="italic" />
 
-            <DatePicker
-                android:id="@+id/datePicker"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="294dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/border"
+                android:backgroundTint="#f1f8e9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:clickable="true"
-                android:datePickerMode="spinner" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Select Date of Birth"
+                    android:textStyle="italic" />
+
+                <DatePicker
+                    android:id="@+id/datePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+                    android:clickable="true"
+                    android:datePickerMode="spinner" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_margin="16dp"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_send"
+                android:textSize="20sp" />
+
         </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="SEND"
-            />
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

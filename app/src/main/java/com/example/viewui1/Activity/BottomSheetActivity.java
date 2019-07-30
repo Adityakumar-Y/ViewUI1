@@ -1,32 +1,46 @@
-package com.example.viewui1;
+package com.example.viewui1.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.viewui1.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class BottomSheetDemo extends AppCompatActivity {
+public class BottomSheetActivity extends AppCompatActivity{
 
     private LinearLayout llBottomSheet;
-
+    private ChipGroup chipGroup;
+    private BottomSheetBehavior bottomSheetBehavior;
+    private AutoCompleteTextView autoCompleteTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_sheet_demo);
 
-        llBottomSheet = findViewById(R.id.bottomSheet);
-        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
+        init();
+        drawBottomSheet();
+        setAutoCompleteList();
+    }
+
+    private void drawBottomSheet() {
+        bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
 
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
@@ -55,18 +69,41 @@ public class BottomSheetDemo extends AppCompatActivity {
 
             }
         });
+    }
 
-
-        setAutoCompleteList();
+    private void init() {
+        llBottomSheet = findViewById(R.id.bottomSheet);
+        autoCompleteTextView = findViewById(R.id.autoView);
+        chipGroup = findViewById(R.id.chipGroup);
     }
 
     private void setAutoCompleteList() {
         int layoutItemId = android.R.layout.simple_dropdown_item_1line;
         String[] country = getResources().getStringArray(R.array.country_arrays);
         List<String> countryList = Arrays.asList(country);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, layoutItemId, countryList);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, layoutItemId, countryList);
 
-        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoView);
+
         autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Chip chip = new Chip(BottomSheetActivity.this);
+                String str = adapter.getItem(i);
+                chip.setText(str);
+                chip.setTextColor(Color.RED);
+                chip.setChipCornerRadius(16f);
+                chip.setChipIcon(getResources().getDrawable(R.drawable.ic_flag_24dp));
+                chip.setCloseIconVisible(true);
+                chip.setOnCloseIconClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Chip chipItem = (Chip) view;
+                        chipGroup.removeView(chipItem);
+                    }
+                });
+                chipGroup.addView(chip);
+            }
+        });
     }
 }

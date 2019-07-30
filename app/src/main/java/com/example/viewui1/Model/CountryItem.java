@@ -1,4 +1,4 @@
-package com.example.viewui1;
+package com.example.viewui1.Model;
 
 public class CountryItem {
     private  String CountryName;

@@ -4,15 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BottomSheetDemo">
+    tools:context=".Activity.BottomSheetActivity">
 
-    <AutoCompleteTextView
-        android:id="@+id/autoView"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:completionThreshold="1"
-        android:layout_margin="16dp"
-        android:hint="Search for country" />
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:completionThreshold="1"
+            android:hint="Search for country" />
+
+        <HorizontalScrollView
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </HorizontalScrollView>
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/bottomSheet"
@@ -38,6 +57,7 @@
             android:layout_height="match_parent"
             android:background="#3f51b5"
             android:padding="16dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
