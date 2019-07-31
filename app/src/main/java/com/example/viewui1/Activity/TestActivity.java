@@ -1,33 +1,57 @@
 package com.example.viewui1.Activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.viewui1.R;
 import com.google.android.material.snackbar.Snackbar;
 
-public class TestActivity extends BaseActivity{
+public class TestActivity extends BaseActivity implements View.OnClickListener {
+
+    private Button btnSlide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        init();
+        popDialog();
+    }
+
+    private void popDialog() {
+
+        new AlertDialog.Builder(this, R.style.CustomDialogAnimation)
+                .setTitle("Welcome User")
+                .setMessage("Press Ok to continue")
+                .setPositiveButton("OK", null)
+                .show();
+
+    }
+
+
+    private void init() {
+        btnSlide = findViewById(R.id.button2);
+
+        btnSlide.setOnClickListener(this);
     }
 
     public void customSnackBar(View view) {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         // Create Snackbar
-        Snackbar snackbar = Snackbar.make(this.findViewById(android.R.id.content), "" ,Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(this.findViewById(android.R.id.content), "", Snackbar.LENGTH_LONG);
 
         // Get Snackbar's Layout View
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
-        layout.setPadding(0,0,0,0);
+        layout.setPadding(0, 0, 0, 0);
 
         // Hide text
         TextView textView = (TextView) layout.findViewById(com.google.android.material.R.id.snackbar_text);
@@ -65,5 +89,11 @@ public class TestActivity extends BaseActivity{
     @Override
     protected String titleName() {
         return "Material Activity";
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(this, AnimationActivity.class);
+        startActivity(i);
     }
 }

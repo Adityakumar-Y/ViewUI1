@@ -11,24 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.BaseActivity"></activity>
-        <activity android:name=".Activity.TestActivity" />
-        <activity
-            android:name=".Activity.ToolBarActivity"
-            android:label="@string/actionLabel" />
-        <activity android:name=".Activity.BottomSheetActivity">
+        <activity android:name=".Activity.AnimationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.BaseActivity" />
+        <activity android:name=".Activity.TestActivity" />
+        <activity
+            android:name=".Activity.ToolBarActivity"
+            android:label="@string/actionLabel" />
+        <activity android:name=".Activity.BottomSheetActivity">
+        </activity>
         <activity android:name=".Activity.ViewUI2" />
         <activity
             android:name=".Activity.MainActivity"
-            android:label="REGISTER">
-
-        </activity>
+            android:label="REGISTER"></activity>
     </application>
 
 </manifest>
