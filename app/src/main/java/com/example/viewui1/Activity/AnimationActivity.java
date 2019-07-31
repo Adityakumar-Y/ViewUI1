@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.viewui1.R;
@@ -18,6 +19,7 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
     private Button btnBlink, btnBounce, btnFadeIn, btnFadeOut,
             btnMove, btnRotate, btnSlideUp, btnSlideDown, btnZoomIn, btnPrev;
     private Animation animation;
+    private EditText etData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void init() {
-        tvData = findViewById(R.id.tvData);
+        //tvData = findViewById(R.id.tvData);
+        etData = findViewById(R.id.etData);
         btnBlink = findViewById(R.id.btnBlink);
         btnPrev = findViewById(R.id.btnPrev);
         btnBounce = findViewById(R.id.btnBounce);
@@ -57,44 +60,36 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
         switch(view.getId()){
             case R.id.btnBlink:
                 animation = AnimationUtils.loadAnimation(this, R.anim.blink);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnBounce:
                 animation = AnimationUtils.loadAnimation(this, R.anim.bounce);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnFadeIn:
                 animation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnFadeOut:
                 animation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnMove:
                 animation = AnimationUtils.loadAnimation(this, R.anim.move);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnRotate:
                 animation = AnimationUtils.loadAnimation(this, R.anim.rotate);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnSlideDown:
                 animation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnSlideUp:
                 animation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnZoomIn:
                 animation = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
-                tvData.startAnimation(animation);
                 break;
             case R.id.btnPrev:
                 Intent i = new Intent(this, TestActivity.class);
                 startActivity(i);
                 break;
         }
+        etData.startAnimation(animation);
     }
 }
